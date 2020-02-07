@@ -1,7 +1,7 @@
 {
-  "name": "react-back-page",
-  "version": "0.4.9",
-  "description": "后台配置页面",
+  "name": "ajax-better",
+  "version": "0.0.1",
+  "description": "好用的ajax封装",
   "main": "dist/index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
@@ -11,15 +11,15 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/lxqsdau/react-back-page.git"
+    "url": "git+https://github.com/lxqsdau/ajax-better.git"
   },
   "keywords": [],
-  "author": "",
+  "author": "liuxuanqing",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/lxqsdau/react-back-page/issues"
+    "url": "https://github.com/lxqsdau/ajax-better.git/issues"
   },
-  "homepage": "https://github.com/lxqsdau/react-back-page#readme",
+  "homepage": "https://github.com/lxqsdau/ajax-better.git#readme",
   "devDependencies": {
     "@babel/cli": "^7.7.5",
     "@babel/core": "^7.7.5",
@@ -41,12 +41,11 @@
     "webpack-merge": "^4.2.2"
   },
   "peerDependencies": {
-    "react": "^16.0.0",
-    "react-dom": "^16.0.0",
     "antd": "^3.0.0"
   },
   "dependencies": {
     "@babel/runtime": "^7.7.6",
-    "prop-types": "^15.7.2"
+    "axios": "^0.19.2",
+    "js-md5": "^0.7.3"
   }
 }

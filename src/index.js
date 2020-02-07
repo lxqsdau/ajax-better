@@ -1,4 +1,2 @@
-import ConfigComponent from "./ConfigComponent";
-import RenderComponent from "./RenderComponent";
-
-export { ConfigComponent, RenderComponent }
+import ajax from "./http";
+export default ajax;
