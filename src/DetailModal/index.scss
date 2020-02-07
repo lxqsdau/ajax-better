@@ -1,0 +1,14 @@
+.detail-item {
+  display: flex;
+  margin-bottom: 14px;
+  font-size: 14px;
+  color: rgba(0, 0, 0, 0.6);
+  .detail-lable {
+    width: 90px;
+    color: rgba(0, 0, 0, 0.8);
+    text-align: left;
+    margin-right: 20px;
+    font-weight: 700;
+    flex-shrink: 0;
+  }
+}
