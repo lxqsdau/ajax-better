@@ -1,13 +1,13 @@
 (function webpackUniversalModuleDefinition(root, factory) {
 	if(typeof exports === 'object' && typeof module === 'object')
-		module.exports = factory(require("antd"));
+		module.exports = factory();
 	else if(typeof define === 'function' && define.amd)
-		define(["antd"], factory);
+		define([], factory);
 	else {
-		var a = typeof exports === 'object' ? factory(require("antd")) : factory(root["antd"]);
+		var a = factory();
 		for(var i in a) (typeof exports === 'object' ? exports : root)[i] = a[i];
 	}
-})(window, function(__WEBPACK_EXTERNAL_MODULE__16__) {
+})(window, function() {
 return /******/ (function(modules) { // webpackBootstrap
 /******/ 	// The module cache
 /******/ 	var installedModules = {};
@@ -91,7 +91,7 @@ return /******/ (function(modules) { // webpackBootstrap
 /******/
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 39);
+/******/ 	return __webpack_require__(__webpack_require__.s = 38);
 /******/ })
 /************************************************************************/
 /******/ ([
@@ -449,7 +449,7 @@ module.exports = {
 /* 1 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var objectWithoutPropertiesLoose = __webpack_require__(18);
+var objectWithoutPropertiesLoose = __webpack_require__(17);
 
 function _objectWithoutProperties(source, excluded) {
   if (source == null) return {};
@@ -588,7 +588,7 @@ module.exports = function isCancel(value) {
 /* WEBPACK VAR INJECTION */(function(process) {
 
 var utils = __webpack_require__(0);
-var normalizeHeaderName = __webpack_require__(24);
+var normalizeHeaderName = __webpack_require__(23);
 
 var DEFAULT_CONTENT_TYPE = {
   'Content-Type': 'application/x-www-form-urlencoded'
@@ -883,11 +883,11 @@ process.umask = function() { return 0; };
 
 
 var utils = __webpack_require__(0);
-var settle = __webpack_require__(25);
+var settle = __webpack_require__(24);
 var buildURL = __webpack_require__(3);
-var buildFullPath = __webpack_require__(27);
-var parseHeaders = __webpack_require__(30);
-var isURLSameOrigin = __webpack_require__(31);
+var buildFullPath = __webpack_require__(26);
+var parseHeaders = __webpack_require__(29);
+var isURLSameOrigin = __webpack_require__(30);
 var createError = __webpack_require__(8);
 
 module.exports = function xhrAdapter(config) {
@@ -985,7 +985,7 @@ module.exports = function xhrAdapter(config) {
     // This is only done if running in a standard browser environment.
     // Specifically not if we're in a web worker, or react-native.
     if (utils.isStandardBrowserEnv()) {
-      var cookies = __webpack_require__(32);
+      var cookies = __webpack_require__(31);
 
       // Add xsrf header
       var xsrfValue = (config.withCredentials || isURLSameOrigin(fullPath)) && config.xsrfCookieName ?
@@ -1069,7 +1069,7 @@ module.exports = function xhrAdapter(config) {
 "use strict";
 
 
-var enhanceError = __webpack_require__(26);
+var enhanceError = __webpack_require__(25);
 
 /**
  * Create an Error with the specified message, config, error code, request and response.
@@ -1480,7 +1480,7 @@ module.exports = _defineProperty;
 /* 14 */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(19);
+module.exports = __webpack_require__(18);
 
 /***/ }),
 /* 15 */
@@ -1489,8 +1489,8 @@ module.exports = __webpack_require__(19);
 "use strict";
 
 
-var stringify = __webpack_require__(35);
-var parse = __webpack_require__(36);
+var stringify = __webpack_require__(34);
+var parse = __webpack_require__(35);
 var formats = __webpack_require__(12);
 
 module.exports = {
@@ -1502,12 +1502,6 @@ module.exports = {
 
 /***/ }),
 /* 16 */
-/***/ (function(module, exports) {
-
-module.exports = __WEBPACK_EXTERNAL_MODULE__16__;
-
-/***/ }),
-/* 17 */
 /***/ (function(module, exports, __webpack_require__) {
 
 /* WEBPACK VAR INJECTION */(function(process, global) {var __WEBPACK_AMD_DEFINE_RESULT__;/**
@@ -1536,7 +1530,7 @@ module.exports = __WEBPACK_EXTERNAL_MODULE__16__;
     root = self;
   }
   var COMMON_JS = !root.JS_MD5_NO_COMMON_JS && typeof module === 'object' && module.exports;
-  var AMD =  true && __webpack_require__(38);
+  var AMD =  true && __webpack_require__(37);
   var ARRAY_BUFFER = !root.JS_MD5_NO_ARRAY_BUFFER && typeof ArrayBuffer !== 'undefined';
   var HEX_CHARS = '0123456789abcdef'.split('');
   var EXTRA = [128, 32768, 8388608, -2147483648];
@@ -2195,10 +2189,10 @@ module.exports = __WEBPACK_EXTERNAL_MODULE__16__;
   }
 })();
 
-/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(6), __webpack_require__(37)))
+/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(6), __webpack_require__(36)))
 
 /***/ }),
-/* 18 */
+/* 17 */
 /***/ (function(module, exports) {
 
 function _objectWithoutPropertiesLoose(source, excluded) {
@@ -2219,7 +2213,7 @@ function _objectWithoutPropertiesLoose(source, excluded) {
 module.exports = _objectWithoutPropertiesLoose;
 
 /***/ }),
-/* 19 */
+/* 18 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -2227,7 +2221,7 @@ module.exports = _objectWithoutPropertiesLoose;
 
 var utils = __webpack_require__(0);
 var bind = __webpack_require__(2);
-var Axios = __webpack_require__(20);
+var Axios = __webpack_require__(19);
 var mergeConfig = __webpack_require__(9);
 var defaults = __webpack_require__(5);
 
@@ -2263,14 +2257,14 @@ axios.create = function create(instanceConfig) {
 
 // Expose Cancel & CancelToken
 axios.Cancel = __webpack_require__(10);
-axios.CancelToken = __webpack_require__(33);
+axios.CancelToken = __webpack_require__(32);
 axios.isCancel = __webpack_require__(4);
 
 // Expose all/spread
 axios.all = function all(promises) {
   return Promise.all(promises);
 };
-axios.spread = __webpack_require__(34);
+axios.spread = __webpack_require__(33);
 
 module.exports = axios;
 
@@ -2279,7 +2273,7 @@ module.exports.default = axios;
 
 
 /***/ }),
-/* 20 */
+/* 19 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -2287,8 +2281,8 @@ module.exports.default = axios;
 
 var utils = __webpack_require__(0);
 var buildURL = __webpack_require__(3);
-var InterceptorManager = __webpack_require__(21);
-var dispatchRequest = __webpack_require__(22);
+var InterceptorManager = __webpack_require__(20);
+var dispatchRequest = __webpack_require__(21);
 var mergeConfig = __webpack_require__(9);
 
 /**
@@ -2380,7 +2374,7 @@ module.exports = Axios;
 
 
 /***/ }),
-/* 21 */
+/* 20 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -2439,14 +2433,14 @@ module.exports = InterceptorManager;
 
 
 /***/ }),
-/* 22 */
+/* 21 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
 var utils = __webpack_require__(0);
-var transformData = __webpack_require__(23);
+var transformData = __webpack_require__(22);
 var isCancel = __webpack_require__(4);
 var defaults = __webpack_require__(5);
 
@@ -2525,7 +2519,7 @@ module.exports = function dispatchRequest(config) {
 
 
 /***/ }),
-/* 23 */
+/* 22 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -2552,7 +2546,7 @@ module.exports = function transformData(data, headers, fns) {
 
 
 /***/ }),
-/* 24 */
+/* 23 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -2571,7 +2565,7 @@ module.exports = function normalizeHeaderName(headers, normalizedName) {
 
 
 /***/ }),
-/* 25 */
+/* 24 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -2603,7 +2597,7 @@ module.exports = function settle(resolve, reject, response) {
 
 
 /***/ }),
-/* 26 */
+/* 25 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -2652,14 +2646,14 @@ module.exports = function enhanceError(error, config, code, request, response) {
 
 
 /***/ }),
-/* 27 */
+/* 26 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
-var isAbsoluteURL = __webpack_require__(28);
-var combineURLs = __webpack_require__(29);
+var isAbsoluteURL = __webpack_require__(27);
+var combineURLs = __webpack_require__(28);
 
 /**
  * Creates a new URL by combining the baseURL with the requestedURL,
@@ -2679,7 +2673,7 @@ module.exports = function buildFullPath(baseURL, requestedURL) {
 
 
 /***/ }),
-/* 28 */
+/* 27 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -2700,7 +2694,7 @@ module.exports = function isAbsoluteURL(url) {
 
 
 /***/ }),
-/* 29 */
+/* 28 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -2721,7 +2715,7 @@ module.exports = function combineURLs(baseURL, relativeURL) {
 
 
 /***/ }),
-/* 30 */
+/* 29 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -2781,7 +2775,7 @@ module.exports = function parseHeaders(headers) {
 
 
 /***/ }),
-/* 31 */
+/* 30 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -2856,7 +2850,7 @@ module.exports = (
 
 
 /***/ }),
-/* 32 */
+/* 31 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -2916,7 +2910,7 @@ module.exports = (
 
 
 /***/ }),
-/* 33 */
+/* 32 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -2980,7 +2974,7 @@ module.exports = CancelToken;
 
 
 /***/ }),
-/* 34 */
+/* 33 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -3014,7 +3008,7 @@ module.exports = function spread(callback) {
 
 
 /***/ }),
-/* 35 */
+/* 34 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -3290,7 +3284,7 @@ module.exports = function (object, opts) {
 
 
 /***/ }),
-/* 36 */
+/* 35 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -3539,7 +3533,7 @@ module.exports = function (str, opts) {
 
 
 /***/ }),
-/* 37 */
+/* 36 */
 /***/ (function(module, exports) {
 
 var g;
@@ -3565,7 +3559,7 @@ module.exports = g;
 
 
 /***/ }),
-/* 38 */
+/* 37 */
 /***/ (function(module, exports) {
 
 /* WEBPACK VAR INJECTION */(function(__webpack_amd_options__) {/* globals __webpack_amd_options__ */
@@ -3574,7 +3568,7 @@ module.exports = __webpack_amd_options__;
 /* WEBPACK VAR INJECTION */}.call(this, {}))
 
 /***/ }),
-/* 39 */
+/* 38 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -3595,11 +3589,8 @@ var _axios_0_19_2_axios_default = /*#__PURE__*/__webpack_require__.n(_axios_0_19
 // EXTERNAL MODULE: ../node_modules/_qs@6.7.0@qs/lib/index.js
 var lib = __webpack_require__(15);
 
-// EXTERNAL MODULE: external "antd"
-var external_antd_ = __webpack_require__(16);
-
 // EXTERNAL MODULE: ../node_modules/_js-md5@0.7.3@js-md5/src/md5.js
-var md5 = __webpack_require__(17);
+var md5 = __webpack_require__(16);
 var md5_default = /*#__PURE__*/__webpack_require__.n(md5);
 
 // CONCATENATED MODULE: ./http.js
@@ -3613,15 +3604,17 @@ function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { va
 
 
 
-
 var ajaxConfig = {
   queryportAppSecert: null,
   queryportAppkey: null,
+  queryportAppType: null,
   baseURL: null
 };
 
 var wrapInterceptors = function wrapInterceptors(http, _ref) {
   var isApijson = _ref.isApijson,
+      requestInterceptors = _ref.requestInterceptors,
+      responseInterceptors = _ref.responseInterceptors,
       other = _ref.other;
   // 请求拦截
   http.interceptors.request.use(function (req) {
@@ -3630,21 +3623,16 @@ var wrapInterceptors = function wrapInterceptors(http, _ref) {
       req.params = _objectSpread({}, req.data);
     }
 
+    if (requestInterceptors) requestInterceptors(req, {
+      isApijson: isApijson
+    });
     return req;
   }); // 响应拦截
 
   http.interceptors.response.use(function (res) {
-    var data = res.data,
-        url = res.config.url;
-
-    var returnConfig = _objectSpread({
-      url: url
-    }, other);
-
-    if (isApijson) returnConfig["returnConfig"] = true;
+    var data = res.data;
     return Promise.resolve({
-      data: data,
-      config: returnConfig
+      data: data
     });
   }, function (error) {
     return Promise.reject(JSON.stringify(error));
@@ -3654,18 +3642,22 @@ var wrapInterceptors = function wrapInterceptors(http, _ref) {
 
 function axiosInstance(_ref2) {
   var isApijson = _ref2.isApijson,
-      other = _ref2.other;
+      other = _ref2.other,
+      requestInterceptors = _ref2.requestInterceptors,
+      responseInterceptors = _ref2.responseInterceptors;
   return wrapInterceptors(_axios_0_19_2_axios_default.a.create({
     baseURL: ajaxConfig.baseURL,
     timeout: 30000,
     withCredentials: true
   }), {
     isApijson: isApijson,
+    requestInterceptors: requestInterceptors,
+    responseInterceptors: responseInterceptors,
     other: other
   });
 }
 
-function http(_ref3) {
+function http(_ref3, requestInterceptors, responseInterceptors) {
   var url = _ref3.url,
       method = _ref3.method,
       _ref3$isFormData = _ref3.isFormData,
@@ -3676,9 +3668,7 @@ function http(_ref3) {
       params = _ref3.params,
       _ref3$isApijson = _ref3.isApijson,
       isApijson = _ref3$isApijson === void 0 ? false : _ref3$isApijson,
-      _ref3$hideErrorMessag = _ref3.hideErrorMessage,
-      hideErrorMessage = _ref3$hideErrorMessag === void 0 ? false : _ref3$hideErrorMessag,
-      other = objectWithoutProperties_default()(_ref3, ["url", "method", "isFormData", "isFileUpload", "data", "params", "isApijson", "hideErrorMessage"]);
+      other = objectWithoutProperties_default()(_ref3, ["url", "method", "isFormData", "isFileUpload", "data", "params", "isApijson"]);
 
   return new Promise(function (resolve, reject) {
     var requestData = {
@@ -3712,32 +3702,31 @@ function http(_ref3) {
 
     if (isApijson) {
       var queryportAppSecert = ajaxConfig.queryportAppSecert,
-          queryportAppkey = ajaxConfig.queryportAppkey;
+          queryportAppkey = ajaxConfig.queryportAppkey,
+          queryportAppType = ajaxConfig.queryportAppType;
       var sign = md5_default()("".concat(queryportAppSecert, ":").concat(JSON.stringify(data), ":").concat(queryportAppSecert));
-      requestData.url = "".concat(url, "?appkey=").concat(queryportAppkey, "&sign=").concat(sign);
+      requestData.url = "".concat(url, "?appkey=").concat(queryportAppkey, "&sign=").concat(sign, "&appType=").concat(queryportAppType);
       requestData.method = method || "post";
     }
 
     axiosInstance({
       isApijson: isApijson,
+      requestInterceptors: requestInterceptors,
+      responseInterceptors: responseInterceptors,
       other: other
-    })(requestData).then(resolve).catch(function (err) {
-      if (!hideErrorMessage) {
-        external_antd_["message"].error(err);
-      }
-
-      reject(err);
-    });
+    })(requestData).then(resolve).catch(reject);
   });
 }
 
 function ajax(_ref5) {
   var queryportAppSecert = _ref5.queryportAppSecert,
       queryportAppkey = _ref5.queryportAppkey,
+      queryportAppType = _ref5.queryportAppType,
       baseURL = _ref5.baseURL;
   ajaxConfig.baseURL = baseURL;
   ajaxConfig.queryportAppSecert = queryportAppSecert;
   ajaxConfig.queryportAppkey = queryportAppkey;
+  ajaxConfig.queryportAppType = queryportAppType;
   return http;
 }
 

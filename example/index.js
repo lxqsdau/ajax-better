@@ -7,10 +7,18 @@ import http from "./http";
 class App extends React.Component {
   componentDidMount () {
     http({
-      url: "/sso/app/logout",
-      method: "post",
-      a: 1,
-      b: 2
+      url: "/queryport/get",
+      data: {
+        "token": "a5556301-a692-4bce-84fc-4a8e58d69705",
+        "@database": "MYSQL",
+        "auth_collect": {
+          "@schema": "auth",
+        }
+      },
+      isApijson: true
+    }, (req) => {
+      req.headers["token"] = "userIdBase64";
+      return req
     }).then(res => {
       console.log(res, "res")
     }).catch(err => {
