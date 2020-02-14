@@ -3604,12 +3604,6 @@ function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { va
 
 
 
-var ajaxConfig = {
-  queryportAppSecert: null,
-  queryportAppkey: null,
-  queryportAppType: null,
-  baseURL: null
-};
 
 var wrapInterceptors = function wrapInterceptors(http, _ref) {
   var isApijson = _ref.isApijson,
@@ -3623,9 +3617,9 @@ var wrapInterceptors = function wrapInterceptors(http, _ref) {
       req.params = _objectSpread({}, req.data);
     }
 
-    if (requestInterceptors) requestInterceptors(req, {
+    if (requestInterceptors) requestInterceptors(_objectSpread({}, req, {
       isApijson: isApijson
-    });
+    }));
     return req;
   }); // 响应拦截
 
@@ -3642,11 +3636,12 @@ var wrapInterceptors = function wrapInterceptors(http, _ref) {
 
 function axiosInstance(_ref2) {
   var isApijson = _ref2.isApijson,
+      baseURL = _ref2.baseURL,
       other = _ref2.other,
       requestInterceptors = _ref2.requestInterceptors,
       responseInterceptors = _ref2.responseInterceptors;
   return wrapInterceptors(_axios_0_19_2_axios_default.a.create({
-    baseURL: ajaxConfig.baseURL,
+    baseURL: baseURL,
     timeout: 30000,
     withCredentials: true
   }), {
@@ -3668,7 +3663,11 @@ function http(_ref3, requestInterceptors, responseInterceptors) {
       params = _ref3.params,
       _ref3$isApijson = _ref3.isApijson,
       isApijson = _ref3$isApijson === void 0 ? false : _ref3$isApijson,
-      other = objectWithoutProperties_default()(_ref3, ["url", "method", "isFormData", "isFileUpload", "data", "params", "isApijson"]);
+      queryportAppSecert = _ref3.queryportAppSecert,
+      queryportAppkey = _ref3.queryportAppkey,
+      queryportAppType = _ref3.queryportAppType,
+      baseURL = _ref3.baseURL,
+      other = objectWithoutProperties_default()(_ref3, ["url", "method", "isFormData", "isFileUpload", "data", "params", "isApijson", "queryportAppSecert", "queryportAppkey", "queryportAppType", "baseURL"]);
 
   return new Promise(function (resolve, reject) {
     var requestData = {
@@ -3701,9 +3700,6 @@ function http(_ref3, requestInterceptors, responseInterceptors) {
     }
 
     if (isApijson) {
-      var queryportAppSecert = ajaxConfig.queryportAppSecert,
-          queryportAppkey = ajaxConfig.queryportAppkey,
-          queryportAppType = ajaxConfig.queryportAppType;
       var sign = md5_default()("".concat(queryportAppSecert, ":").concat(JSON.stringify(data), ":").concat(queryportAppSecert));
       requestData.url = "".concat(url, "?appkey=").concat(queryportAppkey, "&sign=").concat(sign, "&appType=").concat(queryportAppType);
       requestData.method = method || "post";
@@ -3713,24 +3709,28 @@ function http(_ref3, requestInterceptors, responseInterceptors) {
       isApijson: isApijson,
       requestInterceptors: requestInterceptors,
       responseInterceptors: responseInterceptors,
+      baseURL: baseURL,
       other: other
     })(requestData).then(resolve).catch(reject);
   });
 }
 
-function ajax(_ref5) {
+http.create = function (_ref5, requestInterceptors) {
   var queryportAppSecert = _ref5.queryportAppSecert,
       queryportAppkey = _ref5.queryportAppkey,
       queryportAppType = _ref5.queryportAppType,
       baseURL = _ref5.baseURL;
-  ajaxConfig.baseURL = baseURL;
-  ajaxConfig.queryportAppSecert = queryportAppSecert;
-  ajaxConfig.queryportAppkey = queryportAppkey;
-  ajaxConfig.queryportAppType = queryportAppType;
-  return http;
-}
+  return function () {
+    return http(_objectSpread({}, arguments[0], {
+      queryportAppSecert: queryportAppSecert,
+      queryportAppkey: queryportAppkey,
+      queryportAppType: queryportAppType,
+      baseURL: baseURL
+    }), requestInterceptors);
+  };
+};
 
-/* harmony default export */ var http_0 = (ajax);
+/* harmony default export */ var http_0 = (http);
 // CONCATENATED MODULE: ./index.js
 
 /* harmony default export */ var index = __webpack_exports__["default"] = (http_0);

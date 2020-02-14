@@ -16,10 +16,7 @@ class App extends React.Component {
         }
       },
       isApijson: true
-    }, (req) => {
-      req.headers["token"] = "userIdBase64";
-      return req
-    }).then(res => {
+    }, 3).then(res => {
       console.log(res, "res")
     }).catch(err => {
       console.log(err, "err")
