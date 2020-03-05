@@ -3609,11 +3609,12 @@ var wrapInterceptors = function wrapInterceptors(http, _ref) {
   var isApijson = _ref.isApijson,
       requestInterceptors = _ref.requestInterceptors,
       responseInterceptors = _ref.responseInterceptors,
+      requestData = _ref.requestData,
       other = _ref.other;
   // 请求拦截
   http.interceptors.request.use(function (req) {
     // get请求
-    if (req.method === "get" && !isApijson) {
+    if (req.method === "get" && !isApijson && !requestData.params) {
       req.params = _objectSpread({}, req.data);
     }
 
@@ -3639,7 +3640,8 @@ function axiosInstance(_ref2) {
       baseURL = _ref2.baseURL,
       other = _ref2.other,
       requestInterceptors = _ref2.requestInterceptors,
-      responseInterceptors = _ref2.responseInterceptors;
+      responseInterceptors = _ref2.responseInterceptors,
+      requestData = _ref2.requestData;
   return wrapInterceptors(_axios_0_19_2_axios_default.a.create({
     baseURL: baseURL,
     timeout: 30000,
@@ -3648,7 +3650,8 @@ function axiosInstance(_ref2) {
     isApijson: isApijson,
     requestInterceptors: requestInterceptors,
     responseInterceptors: responseInterceptors,
-    other: other
+    other: other,
+    requestData: requestData
   });
 }
 
@@ -3710,6 +3713,7 @@ function http(_ref3, requestInterceptors, responseInterceptors) {
       requestInterceptors: requestInterceptors,
       responseInterceptors: responseInterceptors,
       baseURL: baseURL,
+      requestData: requestData,
       other: other
     })(requestData).then(resolve).catch(reject);
   });

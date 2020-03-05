@@ -2,11 +2,11 @@ import axios from 'axios';
 import * as qs from 'qs';
 import md5 from "js-md5";
 
-const wrapInterceptors = (http, { isApijson, requestInterceptors, responseInterceptors, other }) => {
+const wrapInterceptors = (http, { isApijson, requestInterceptors, responseInterceptors, requestData, other }) => {
   // 请求拦截
   http.interceptors.request.use(req => {
     // get请求
-    if (req.method === "get" && !isApijson) {
+    if (req.method === "get" && !isApijson && !requestData.params) {
       req.params = { ...req.data }
     }
     if (requestInterceptors) requestInterceptors({ ...req, isApijson });
@@ -21,12 +21,12 @@ const wrapInterceptors = (http, { isApijson, requestInterceptors, responseInterc
   });
   return http;
 }
-function axiosInstance ({ isApijson, baseURL, other, requestInterceptors, responseInterceptors }) {
+function axiosInstance ({ isApijson, baseURL, other, requestInterceptors, responseInterceptors, requestData }) {
   return wrapInterceptors(axios.create({
     baseURL,
     timeout: 30000,
     withCredentials: true,
-  }), { isApijson, requestInterceptors, responseInterceptors, other });
+  }), { isApijson, requestInterceptors, responseInterceptors, other, requestData });
 }
 
 
@@ -73,7 +73,7 @@ function http ({
       requestData.url = `${url}?appkey=${queryportAppkey}&sign=${sign}&appType=${queryportAppType}`;
       requestData.method = method || "post";
     }
-    axiosInstance({ isApijson, requestInterceptors, responseInterceptors, baseURL, other })(requestData).then(resolve).catch(reject)
+    axiosInstance({ isApijson, requestInterceptors, responseInterceptors, baseURL, requestData, other })(requestData).then(resolve).catch(reject)
   });
 }
 
