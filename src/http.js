@@ -58,15 +58,11 @@ function http ({
     }
 
     if (method === "post" && isFileUpload) {
-      const { fileList, ...info } = data;
-      let formData = new FormData();
-      for (let props in info) {
-        formData.append(props, info[props]);
+      let formData = new FormData()
+      for (let props in req.data) {
+        formData.append(props, req.data[props])
       }
-      fileList.forEach(({ file, name }) => {
-        formData.append(name, file);
-      });
-      requestData.data = formData;
+      requestData.data = formData
     }
     if (isApijson) {
       const sign = md5(`${queryportAppSecert}:${JSON.stringify(data)}:${queryportAppSecert}`);
