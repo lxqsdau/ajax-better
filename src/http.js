@@ -59,8 +59,8 @@ function http ({
 
     if (method === "post" && isFileUpload) {
       let formData = new FormData()
-      for (let props in req.data) {
-        formData.append(props, req.data[props])
+      for (let props in requestData.data) {
+        formData.append(props, requestData.data[props])
       }
       requestData.data = formData
     }

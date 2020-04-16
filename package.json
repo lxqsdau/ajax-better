@@ -1,6 +1,6 @@
 {
   "name": "ajax-better",
-  "version": "0.0.8",
+  "version": "0.0.9",
   "description": "好用的ajax封装",
   "main": "dist/index.js",
   "scripts": {

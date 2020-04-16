@@ -3687,8 +3687,8 @@ function http(_ref3, requestInterceptors, responseInterceptors) {
     if (method === "post" && isFileUpload) {
       var formData = new FormData();
 
-      for (var props in req.data) {
-        formData.append(props, req.data[props]);
+      for (var props in requestData.data) {
+        formData.append(props, requestData.data[props]);
       }
 
       requestData.data = formData;
