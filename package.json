@@ -1,6 +1,6 @@
 {
   "name": "ajax-better",
-  "version": "0.0.9",
+  "version": "0.1.0",
   "description": "好用的ajax封装",
   "main": "dist/index.js",
   "scripts": {
@@ -40,8 +40,7 @@
     "webpack-dev-server": "^3.9.0",
     "webpack-merge": "^4.2.2"
   },
-  "peerDependencies": {
-  },
+  "peerDependencies": {},
   "dependencies": {
     "@babel/runtime": "^7.7.6",
     "axios": "^0.19.2",

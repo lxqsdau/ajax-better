@@ -66,7 +66,7 @@ function http ({
     }
     if (isApijson) {
       const sign = md5(`${queryportAppSecert}:${JSON.stringify(data)}:${queryportAppSecert}`);
-      requestData.url = `${url}?appkey=${queryportAppkey}&sign=${sign}&appType=${queryportAppType}`;
+      requestData.url = `${url}?appkey=${queryportAppkey}&sign=${sign}${queryportAppType ? `&appType=${queryportAppType}`: ""}`;
       requestData.method = method || "post";
     }
     axiosInstance({ isApijson, requestInterceptors, responseInterceptors, baseURL, requestData, other })(requestData).then(resolve).catch(reject)
