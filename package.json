@@ -43,7 +43,10 @@
   "peerDependencies": {},
   "dependencies": {
     "@babel/runtime": "^7.7.6",
+    "antd": "^4.8.2",
     "axios": "^0.19.2",
-    "js-md5": "^0.7.3"
+    "js-md5": "^0.7.3",
+    "react": "^17.0.1",
+    "react-dom": "^17.0.1"
   }
 }

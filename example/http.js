@@ -5,5 +5,6 @@ export default ajax.create({
   baseURL: "http://daily.hknet-inc.com",
   ...queryportConfig
 }, req => {
-  console.log(req)
+  req.headers.token = "token"
+  console.log("req" , req)
 })
